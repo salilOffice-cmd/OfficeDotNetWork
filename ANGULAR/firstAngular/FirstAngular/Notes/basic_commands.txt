@@ -1,0 +1,13 @@
+1. install angular cli via npm
+$ npm i -g @angular/cli@15
+
+2. Create Project
+$ ng new <ProjectName>
+
+3. Run the Project
+$ ng serve
+
+4. Create a component
+$ ng generate component <component-name>
+or
+$ ng g c <component-name>

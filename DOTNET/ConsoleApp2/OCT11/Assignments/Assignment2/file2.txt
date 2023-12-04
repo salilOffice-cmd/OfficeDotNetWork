@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace ConsoleApp2.OCT10.Assignments.Assignment2
+{
+    internal class sortFiles
+    {
+        public static void Main(string[] args)
+        {
+            string[] files = Directory.GetFiles("D:\\DayUsers\\SalilDeogade\\Official\\ConsoleApp2\\OCT10\\Assignments\\Assignment2");
+
+            List<double> list = new List<double>();
+            Dictionary<string, double> sortedBySizeList = new Dictionary<string, double>();
+
+            foreach (string file in files) {
+   
+                FileInfo fileInfo = new FileInfo(file);
+                double fileSizeInKBs = (double) fileInfo.Length / 1024;
+                sortedBySizeList.Add(file, fileSizeInKBs);
+            }
+
+            foreach (var item in sortedBySizeList)
+            {
+                Console.WriteLine($"{item.Key} : {item.Value} Kbs");
+            }
+
+        }
+    }
+}

@@ -1,0 +1,126 @@
+<!-- Learning PROPERTY BINDING -->
+<!-- see ./Notes for more -->
+
+<!-- 1. String Interpolation -->
+<h1>{{alive}}</h1>
+<h1 hidden = {{alive}}>{{name}}</h1>
+
+
+<!-- 2. Property Binding -->
+<!-- Did worked here -->
+<input type="text" [disabled] = 'alive'>
+<!-- Did not worked here as alive is not a string property -->
+<input type="text" disabled = {{alive}}>
+
+
+<!-- <app-card></app-card> -->
+
+<!-- *************** -->
+<!-- From View to Component(one way data binding) -->
+<input type="text" #textInp>
+<button (click)="recieveValue(textInp.value)">SendValue</button>
+<h2>{{gotValue}}</h2>
+
+<!-- Note: In the previous examples -->
+<!-- We first send data from component to view -->
+<!-- Then, we send data from view to component -->
+<!-- this two methods are called as one way data binding -->
+
+
+<!-- Practiced Example -->
+<!-- Show the list of employees that has been added to the array in the component -->
+<input type="text" #empName placeholder="Name">
+<input type="number"  #empAge placeholder="Age">
+<input type="text" #empDept placeholder="Department">
+<button (click)="recieveEmployee(empName.value, +empAge.value , empDept.value)">
+    Send Details
+</button>
+<h1>{{gender}}</h1>
+
+<h3>All Employees::</h3>
+<div *ngFor="let emp of employees" style="border: 2px solid red; padding: 6px;">
+    <span>{{emp.name}} - </span>
+    <span>{{emp.age}} - </span>
+    <span>{{emp.department}}</span>
+</div>
+
+
+
+
+
+
+<!-- Learning DIRECTIVES -->
+<!-- 1. *ngIf -->
+
+
+
+<!-- simple if -->
+<h2 *ngIf="alive">
+    I am alive
+</h2>
+
+
+
+<!-- if else -->
+<h3 *ngIf="alive else elsePart" >
+    I am alive
+</h3>
+
+<ng-template #elsePart>
+    <h3>I am dead</h3>
+</ng-template>
+
+<h2 *ngIf="name.length > 10  else elsePart">
+    {{name}}
+</h2>
+
+
+<!-- OR -->
+<!-- if else -->
+<!-- <div *ngIf="alive; then ifBlock else elseBlock" ></div> -->
+
+<!-- <ng-template #ifBlock>
+    <h3>I am alive</h3>
+</ng-template>
+
+<ng-template #elseBlock>
+    <h3>I am dead</h3>
+</ng-template> -->
+
+
+
+<!-- Example -->
+<!-- <div *ngIf="name.length > 10; else elseShowLess">
+    <h2>Name is greater than 10 letters</h2>
+</div>
+
+<ng-template #elseShowLess>
+    <h2>Name is less than 10 letters</h2>
+</ng-template> -->
+
+
+
+
+<!-- 2. *ngFor -->
+
+<!-- Iterating through just a simple array -->
+<!-- <div *ngFor="let num of numbers" style="border : 1px solid red;" >
+    <span style="border: 1px solid blue; font-size: 30px;">
+        {{num}}
+    </span>
+</div> -->
+
+<!-- We will use this most commonly -->
+<!-- Iterating through array of objects -->
+<!-- <div *ngFor="let person of persons" style="border: 1px solid black;" >
+    <h4>name : {{person.name}}</h4>
+    <p>age : {{person.age}}</p>
+</div> -->
+
+
+<input type="text" [(ngModel)] = "twoWay" >
+<h1>{{twoWay}}</h1>
+
+
+<h2><a routerLink="card">Show Card</a></h2>
+<router-outlet></router-outlet>

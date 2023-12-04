@@ -1,0 +1,33 @@
+In Angular, string interpolation and property binding are both ways
+ to pass data from the component class to the template.
+
+
+String Interpolation:
+String interpolation is denoted by double curly braces {{ }}.
+It allows you to display the component's property values within the HTML template.
+The expression inside the double curly braces is evaluated and the
+result is converted to a string and displayed in the HTML.
+
+
+
+Property Binding:
+Property binding is denoted by square brackets [ ].
+It allows you to set the value of an HTML element property to
+the value of a component's property.
+
+
+NOTE::
+In summary, string interpolation is used to display the component's property
+values within the HTML template, while property binding 
+is used to set the value of an HTML element property to the value 
+of a component's property.
+
+
+Which to use when:
+1. Property binding is more explicit and is the recommended way
+to bind properties in Angular. 
+It makes it clear that you are binding to a property of the element.
+**Property binding is necessary when you want to bind 
+to a property that is not a string**. 
+For example, if you want to bind to a boolean property, 
+you would need to use property binding like this: <input [disabled]="isDisabled" />.
